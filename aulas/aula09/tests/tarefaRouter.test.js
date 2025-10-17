@@ -8,14 +8,15 @@ describe("Testes do recurso /tarefas", () => {
   test("POST / deve retornar 201", async () => {
     const response = await request.post(url).send({ nome: "Estudar" });
     expect(response.status).toBe(201);
-    id = response.body.id;
+    id = response.body._id;
   });
 
   test("GET / deve retornar 200", async () => {
     const response = await request.get(url);
     expect(response.status).toBe(200);
+    expect(Array.isArray(response.body)).toBe(true);
   });
-  test("GET / deve retornar 200", async () => {
+  test("GET /id deve retornar 200", async () => {
     const response = await request.get(`${url}/${id}`);
     expect(response.status).toBe(200);
   });
