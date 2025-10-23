@@ -21,8 +21,7 @@ describe("Testes do recurso /tarefas", () => {
     expect(response.status).toBe(200);
     expect(Array.isArray(response.body)).toBe(true);
   });
-
-  test("GET /id deve retornar 200", async () => {
+  test("GET / deve retornar 200", async () => {
     const response = await request.get(`${url}/${id}`);
     expect(response.status).toBe(200);
   });
